@@ -14,3 +14,13 @@
  - 得益于composer的流行，本项目并没有创造什么，只是演示了一种结合laravel与workerman的方法
 
  - 如无意外，本项目基本可以随意执行composer update来更新laravel和workerman
+
+--
+
+```php
+public function onMessage($connection,$data){
+    if(json_decode($data)['route'] === "post.auth.login")
+    $status = User::login($data);
+    $connection -> send(json_encode(['status' => $status]));
+}
+```
