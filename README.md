@@ -11,7 +11,7 @@
 
 --
 
- - 得益于composer的流行，本项目并没有创造什么，只是演示了一种结合laravel与workerman的方法
+ - 得益于composer的流行，本项目并没有创造什么，所以这里没有文档。一切都和以前一样，使用php start.php start来启动workerman，使用php artisan make:model User 来生成larave模型文件。
 
  - 如无意外，本项目基本可以随意执行composer update来更新laravel和workerman
 
