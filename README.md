@@ -2,10 +2,12 @@
 
 ### php实现websocket的双向即时通讯的最佳实践
 
-1. 基于laravel&workerman
-2. 本项目演示了在worker进程中使用Eloquent ORM，在laravel中使用websocket
-3. 考虑是否将angular-websocket加入此项目
-4. 考虑是否将angular-websocket-resource加入此项目
+基于此演示：
+
+1. 你可以使用laravel的一切功能和正常升级
+2. 你可以使用workerman的一切功能和正常升级
+3. 你可以在workerman进程中使用Eloquent ORM
+4. 你可以轻松将诸如用户私信之类的数据推送到浏览器（或客户端）
 --
 
  - 得益于composer的流行，本项目并没有创造什么，只是演示了一种结合laravel与workerman的方法
