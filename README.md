@@ -17,6 +17,8 @@
 
 --
 
+###实例代码：
+
 ```php
 public function onMessage($connection,$data){
     if(json_decode($data)['route'] === "post.auth.login")
@@ -24,3 +26,17 @@ public function onMessage($connection,$data){
     $connection -> send(json_encode(['status' => $status]));
 }
 ```
+
+--
+
+###原理
+
+伟大的composer
+
+--
+
+###操作步骤
+
+1. composer create-project laravel/laravel laravel_worker --prefer-dist
+2. cd laravel_worker
+3. composer require workerman/workerman
