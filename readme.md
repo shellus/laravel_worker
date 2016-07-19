@@ -1,27 +1,42 @@
-# Laravel PHP Framework
+# laravel_worker
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+### php实现websocket的双向即时通讯的最佳实践
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+基于此演示你可以：
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+1. 使用laravel的一切功能和正常升级
+2. 使用workerman的一切功能和正常升级
+3. 在workerman进程中使用Eloquent ORM
+4. 轻松将诸如用户私信之类的数据推送到浏览器（或客户端）
 
-## Official Documentation
+--
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+ - 得益于composer的流行，本项目并没有创造什么，所以这里没有文档。一切都和以前一样，使用php start.php start来启动workerman，使用php artisan make:model User 来生成larave模型文件。
 
-## Contributing
+ - 如无意外，本项目基本可以随意执行composer update来更新laravel和workerman
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+--
 
-## Security Vulnerabilities
+###实例代码：
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+```php
+public function onMessage($connection,$data){
+    if(json_decode($data)['route'] === "post.auth.login")
+    $status = User::login($data);
+    $connection -> send(json_encode(['status' => $status]));
+}
+```
 
-## License
+--
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+###原理
+
+伟大的composer
+
+--
+
+###操作步骤
+
+1. composer create-project laravel/laravel laravel_worker --prefer-dist
+2. cd laravel_worker
+3. composer require workerman/workerman
