@@ -40,3 +40,13 @@ public function onMessage($connection,$data){
 1. composer create-project laravel/laravel laravel_worker --prefer-dist
 2. cd laravel_worker
 3. composer require workerman/workerman
+
+
+###如何运行示例
+
+1. git clone https://github.com/shellus/laravel_worker.git
+2. cd laravel_worker
+3. composer install
+4. php artisan wss:start
+5. php artisan serve
+6. open `http://localhost:8000/` in you browser
