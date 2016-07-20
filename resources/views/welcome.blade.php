@@ -3,8 +3,6 @@
     <head>
         <title>Laravel</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
         <style>
             html, body {
                 height: 100%;
@@ -41,5 +39,17 @@
                 <div class="title">Laravel 5</div>
             </div>
         </div>
+    <script>
+        var ws = new WebSocket('ws://' + window.location.hostname + ':2346');
+        ws.onmessage = function (payload) {
+            console.log(payload);
+        };
+        ws.onopen = function () {
+            ws.send("test!");
+            console.log('opend')
+        };
+        ws.onclose = function(evt){console.log("WebSocketClosed!");};
+        ws.onerror = function(evt){console.log("WebSocketError!");};
+    </script>
     </body>
 </html>
