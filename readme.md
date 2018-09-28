@@ -1,1 +1,1 @@
-请稍候，文档马上就来
+不再维护，请使用[laravel-swoole](https://github.com/swooletw/laravel-swoole)
